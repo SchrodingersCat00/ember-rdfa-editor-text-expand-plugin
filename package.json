@@ -15,7 +15,7 @@
     "lint": "npm-run-all --aggregate-output --continue-on-error --parallel lint:*",
     "lint:hbs": "ember-template-lint .",
     "lint:js": "eslint .",
-    "start": "ember serve",
+    "start": "ember serve --proxy=http://demo-backend.say-editor.com",
     "test": "npm-run-all lint:* test:*",
     "test:ember": "ember test"
   },
@@ -24,6 +24,9 @@
     "@glimmer/component": "^1.0.0",
     "@glimmer/tracking": "^1.0.0",
     "@lblod/ember-rdfa-editor": "^0.39.0",
+    "@lblod/ember-rdfa-editor-date-overwrite-plugin": "^0.3.3",
+    "@lblod/ember-rdfa-editor-date-plugin": "^0.9.0",
+    "@lblod/ember-rdfa-editor-dbpedia-info-plugin": "0.0.4",
     "@lblod/ember-rdfa-editor-plugin-generator": "^0.3.0",
     "@lblod/ember-rdfa-editor-plugin-system-dispatcher": "^0.5.9",
     "@lblod/ember-vo-webuniversum": "^0.22.8",
