@@ -1,1 +1,329 @@
 @import "ember-rdfa-editor";
+
+html {
+	 font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+ .toolbar__styling-tools + div {
+	 display: none;
+}
+ em, i {
+	 font-style: italic;
+}
+ strong {
+	 font-weight: 900;
+}
+ .document-publish ul.bullet-list, .editor__paper ul.bullet-list, .document-print ul.bullet-list {
+	 padding-left: 0;
+}
+ [data-editor-highlight="true"] {
+	 background-color: #ff0;
+}
+ .document-publish ul ol:before, .editor__paper ul ol:before, .document-print ul ol:before, .document-publish ol ol:before, .editor__paper ol ol:before, .document-print ol ol:before, .document-publish ul ul:before, .editor__paper ul ul:before, .document-print ul ul:before, .document-publish ol ul:before, .editor__paper ol ul:before, .document-print ol ul:before {
+	 content: "";
+	 display: block;
+	 position: absolute;
+	 width: 1.5rem;
+	 height: 1.5rem;
+	 left: -2rem;
+	 top: 0.5rem;
+	 background-color: white;
+	 z-index: 1;
+}
+ .document-publish ol:not(.bullet-list):not(.numbered-list), .editor__paper ol:not(.bullet-list):not(.numbered-list), .document-print ol:not(.bullet-list):not(.numbered-list), .document-publish ul:not(.bullet-list):not(.numbered-list), .editor__paper ul:not(.bullet-list):not(.numbered-list), .document-print ul:not(.bullet-list):not(.numbered-list) {
+	 padding-left: 1.75em;
+}
+ .document-publish ol:not(.bullet-list):not(.numbered-list) > li, .editor__paper ol:not(.bullet-list):not(.numbered-list) > li, .document-print ol:not(.bullet-list):not(.numbered-list) > li, .document-publish ul:not(.bullet-list):not(.numbered-list) > li, .editor__paper ul:not(.bullet-list):not(.numbered-list) > li, .document-print ul:not(.bullet-list):not(.numbered-list) > li {
+	 list-style-type: initial;
+}
+ .document-publish ul:not(.bullet-list):not(.numbered-list) li > ul > li, .editor__paper ul:not(.bullet-list):not(.numbered-list) li > ul > li, .document-print ul:not(.bullet-list):not(.numbered-list) li > ul > li {
+	 list-style-type: circle;
+}
+ .document-publish ul:not(.bullet-list):not(.numbered-list) li > ul > li > ul > li, .editor__paper ul:not(.bullet-list):not(.numbered-list) li > ul > li > ul > li, .document-print ul:not(.bullet-list):not(.numbered-list) li > ul > li > ul > li {
+	 list-style-type: square;
+}
+ .document-publish ul:not(.bullet-list):not(.numbered-list) li > ul > li > ul > li > ul > li, .editor__paper ul:not(.bullet-list):not(.numbered-list) li > ul > li > ul > li > ul > li, .document-print ul:not(.bullet-list):not(.numbered-list) li > ul > li > ul > li > ul > li {
+	 list-style-type: initial;
+}
+ .document-publish ul:not(.bullet-list):not(.numbered-list) li > ul > li > ul > li > ul > li > ul > li, .editor__paper ul:not(.bullet-list):not(.numbered-list) li > ul > li > ul > li > ul > li > ul > li, .document-print ul:not(.bullet-list):not(.numbered-list) li > ul > li > ul > li > ul > li > ul > li {
+	 list-style-type: circle;
+}
+ .document-publish ul:not(.bullet-list):not(.numbered-list) li > ul > li > ul > li > ul > li > ul > li > ul > li, .editor__paper ul:not(.bullet-list):not(.numbered-list) li > ul > li > ul > li > ul > li > ul > li > ul > li, .document-print ul:not(.bullet-list):not(.numbered-list) li > ul > li > ul > li > ul > li > ul > li > ul > li {
+	 list-style-type: square;
+}
+ .document-publish ul:not(.bullet-list):not(.numbered-list) li > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li, .editor__paper ul:not(.bullet-list):not(.numbered-list) li > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li, .document-print ul:not(.bullet-list):not(.numbered-list) li > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li {
+	 list-style-type: initial;
+}
+ .document-publish ul:not(.bullet-list):not(.numbered-list) li > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li, .editor__paper ul:not(.bullet-list):not(.numbered-list) li > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li, .document-print ul:not(.bullet-list):not(.numbered-list) li > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li {
+	 list-style-type: circle;
+}
+ .document-publish ul:not(.bullet-list):not(.numbered-list) li > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li, .editor__paper ul:not(.bullet-list):not(.numbered-list) li > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li, .document-print ul:not(.bullet-list):not(.numbered-list) li > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li {
+	 list-style-type: square;
+}
+ .document-publish ol:not(.bullet-list):not(.numbered-list) > li, .editor__paper ol:not(.bullet-list):not(.numbered-list) > li, .document-print ol:not(.bullet-list):not(.numbered-list) > li {
+	 list-style-type: decimal;
+}
+ .document-publish [property="besluit:heeftAgenda"] > ul:not(.bullet-list) li, .editor__paper [property="besluit:heeftAgenda"] > ul:not(.bullet-list) li, .document-print [property="besluit:heeftAgenda"] > ul:not(.bullet-list) li {
+	 list-style-type: none;
+}
+/* Clean up design */
+ .button, .button:visited {
+	 background-color: #9000fa;
+	 border-radius: 3rem;
+}
+ .button:hover, .button:focus {
+	 background-color: #8900ed;
+}
+ a {
+	 color: #666;
+}
+/* Position save button in top right position */
+ .button-top-right {
+	 position: fixed !important;
+	 z-index: 2;
+	 top: 6.9rem;
+	 right: 0.9rem;
+}
+ .editor-container {
+	 padding-top: 11.5rem;
+	 background-color: #f3f5f6;
+}
+ .app-chrome {
+	 background-color: #fff;
+	 position: fixed;
+	 top: 0;
+	 left: 0;
+	 z-index: 1;
+	 width: 100%;
+}
+ .app-chrome--header {
+	 padding: 1.5rem 2rem;
+	 height: 6rem;
+	 border-bottom: 1px solid #e8ebee;
+}
+ .app-chrome img {
+	 height: 3rem;
+}
+ .app-chrome--toolbar-container {
+	 display: block;
+}
+ .editor-loading-events, .editor-hints {
+	 padding: 2rem;
+	 position: fixed;
+	 width: 33.33333%;
+	 right: 0;
+	 top: 11.5rem;
+}
+ .editor-loading-events .grid {
+	 display: flex;
+	 align-items: center;
+}
+ .editor-loading-events .col--2-12 {
+	 max-width: auto;
+	 min-width: auto;
+	 flex-basis: auto;
+	 margin-right: 1rem;
+	 color: #6d7783;
+	 opacity: 0.6;
+}
+ .editor-loading-events .col--10-12 {
+	 max-width: auto;
+	 min-width: auto;
+	 flex-basis: auto;
+	 color: #6d7783;
+}
+ .editor {
+	 display: flex;
+	 justify-content: flex-end;
+	 padding-right: 1rem;
+}
+ .editor__paper {
+	 width: 700px;
+}
+/* Fix modal position */
+ .annotation-suggestion__suggestion {
+	 right: 2rem;
+	 top: 5rem;
+}
+ .modal-dialog.modal-dialog--sectioned .modal-dialog__content {
+	 max-height: 60vh;
+	 overflow-y: auto;
+}
+/* Style modal content */
+ .wiki-content h2 {
+	 margin-bottom: 1rem;
+	 font-weight: 600;
+}
+ .wiki-content img {
+	 width: 100%;
+	 margin-bottom: 0.5rem;
+	 border: 2px solid #e8ebee;
+}
+ .wiki-content p + p {
+	 width: 100%;
+}
+/* showing off knowledge */
+ [property="ext:behandelt"] [data-editor-highlight="true"] {
+	 background-color: rgba(254, 229, 57, 0.9);
+}
+ [property="ext:behandelt"] [data-editor-highlight="true"]:before {
+	 content: "Click me!";
+}
+/* ========================================================================== Shared styling (hover, click, show, regular) ========================================================================== */
+/* styling the annotations */
+ .rdfa-editor .editor span {
+	 display: inline-block;
+}
+ .rdfa-editor .editor [property="prov:value"] > div > span, .rdfa-editor .editor [property="ext:behandelt"] > div > span {
+	 display: block;
+}
+ [data-editor-highlight="true"], [property], [typeof]:not([typeof="foaf:Document"]), [data-type], .mark-highlight-manual {
+	 border-bottom: 1px solid rgba(203, 210, 218, 0.8);
+	 padding-bottom: 5px;
+}
+ [data-editor-highlight="true"]:not([data-flagged-remove="complete"]):before, [property]:not([data-flagged-remove="complete"]):before, [typeof]:not([typeof="foaf:Document"]):not([data-flagged-remove="complete"]):before, [data-type]:not([data-flagged-remove="complete"]):before, .mark-highlight-manual:not([data-flagged-remove="complete"]):before {
+	/* positioning */
+	 content: attr(property) " " attr(typeof) " " attr(data-type);
+	 top: -999px;
+	 opacity: 0;
+	 position: absolute;
+	 left: auto;
+	 width: 22rem;
+	 pointer-events: none;
+	 transition: opacity 200ms;
+	 z-index: 901;
+	/* text */
+	 text-transform: uppercase;
+	 letter-spacing: 1px;
+	 font-weight: 600;
+	 font-size: 1.2rem;
+	 color: #79838f;
+	 line-height: 1;
+	 font-family: "flanders-sans", sans-serif;
+	 display: block;
+}
+ [data-editor-highlight="true"]:after, [property]:after, [typeof]:not([typeof="foaf:Document"]):after, [data-type]:after, .mark-highlight-manual:after {
+	 position: absolute;
+	 top: 0.5rem;
+}
+ [data-editor-highlight="true"] [typeof], [property] [typeof], [typeof]:not([typeof="foaf:Document"]) [typeof], [data-type] [typeof], .mark-highlight-manual [typeof], [data-editor-highlight="true"] [property], [property] [property], [typeof]:not([typeof="foaf:Document"]) [property], [data-type] [property], .mark-highlight-manual [property], [data-editor-highlight="true"] [data-type], [property] [data-type], [typeof]:not([typeof="foaf:Document"]) [data-type], [data-type] [data-type], .mark-highlight-manual [data-type] {
+	 padding-bottom: 3px;
+}
+ [data-editor-highlight="true"] [typeof] [data-type], [property] [typeof] [data-type], [typeof]:not([typeof="foaf:Document"]) [typeof] [data-type], [data-type] [typeof] [data-type], .mark-highlight-manual [typeof] [data-type], [data-editor-highlight="true"] [property] [data-type], [property] [property] [data-type], [typeof]:not([typeof="foaf:Document"]) [property] [data-type], [data-type] [property] [data-type], .mark-highlight-manual [property] [data-type], [data-editor-highlight="true"] [typeof] [typeof], [property] [typeof] [typeof], [typeof]:not([typeof="foaf:Document"]) [typeof] [typeof], [data-type] [typeof] [typeof], .mark-highlight-manual [typeof] [typeof], [data-editor-highlight="true"] [property] [property], [property] [property] [property], [typeof]:not([typeof="foaf:Document"]) [property] [property], [data-type] [property] [property], .mark-highlight-manual [property] [property] {
+	 padding-bottom: 2px;
+}
+/* making it easy to discover elements that need to be filled out / take action upon */
+ [property^="ext:insert"], [data-editor-highlight="true"] {
+	 background-color: rgba(254, 229, 57, 0.9);
+}
+ [property^="ext:insert"]::selection, [data-editor-highlight="true"]::selection {
+	 background-color: #d0b601;
+}
+ [property^="ext:insert"]:hover, [data-editor-highlight="true"]:hover {
+	 color: #000;
+	 background-color: #fee539;
+}
+/* hide superfluous annotations */
+ [property=""], [typeof=""], [property="ext:metadata"], [property="http://mu.semte.ch/vocabularies/ext/noHighlight"], [property="http://mu.semte.ch/vocabularies/ext/noHighlight"] {
+	 border-bottom: 0;
+}
+ [property=""]:after, [typeof=""]:after, [property="ext:metadata"]:after, [property="http://mu.semte.ch/vocabularies/ext/noHighlight"]:after, [property="http://mu.semte.ch/vocabularies/ext/noHighlight"]:after, [property=""]:before, [typeof=""]:before, [property="ext:metadata"]:before, [property="http://mu.semte.ch/vocabularies/ext/noHighlight"]:before, [property="http://mu.semte.ch/vocabularies/ext/noHighlight"]:before {
+	 content: normal !important;
+}
+/* ========================================================================== // Annotations styles on hover // ========================================================================== */
+ .editor__paper {
+	 position: relative;
+}
+ .editor__paper [data-editor-highlight="true"]:before {
+	 content: "Action!" !important;
+}
+ .editor__paper [property="http://purl.org/dc/terms/created"]:before, .editor__paper [property="dct:created"]:before {
+	 content: "Date: " attr(content) "\A \A" attr(property) "\A" attr(datatype) !important;
+}
+ .editor__paper [property="rdf:seeAlso"]:before {
+	 content: "Link to: " attr(href) "\A \A" attr(property) !important;
+}
+ .editor__paper [typeof], .editor__paper [property], .editor__paper [data-type], .editor__paper [data-editor-highlight="true"] {
+	/* showing annotations text */
+	/* style for lines that accompany annotations */
+	/* positioning of annotations (pseudo class elements) */
+}
+ .editor__paper [typeof]:before, .editor__paper [property]:before, .editor__paper [data-type]:before, .editor__paper [data-editor-highlight="true"]:before, .editor__paper [typeof]:after, .editor__paper [property]:after, .editor__paper [data-type]:after, .editor__paper [data-editor-highlight="true"]:after, .editor__paper [typeof]:hover:before, .editor__paper [property]:hover:before, .editor__paper [data-type]:hover:before, .editor__paper [data-editor-highlight="true"]:hover:before, .editor__paper [typeof]:hover:after, .editor__paper [property]:hover:after, .editor__paper [data-type]:hover:after, .editor__paper [data-editor-highlight="true"]:hover:after {
+	 transition: padding 400ms, opacity 400ms, left 200ms;
+}
+ .editor__paper [typeof][data-editor-position-level]:before, .editor__paper [property][data-editor-position-level]:before, .editor__paper [data-type][data-editor-position-level]:before, .editor__paper [data-editor-highlight="true"][data-editor-position-level]:before {
+	 z-index: 1;
+}
+ .editor__paper [typeof]:not([data-editor-position-level]):hover:before, .editor__paper [property]:not([data-editor-position-level]):hover:before, .editor__paper [data-type]:not([data-editor-position-level]):hover:before, .editor__paper [data-editor-highlight="true"]:not([data-editor-position-level]):hover:before {
+	 background-color: rgba(243, 245, 246, 0.9);
+	 color: #96a6b8;
+	 opacity: 1;
+	 z-index: 100 !important;
+	 padding-right: 0.5rem;
+	 right: -29.5rem;
+}
+ .editor__paper [typeof][data-editor-position-level]:before, .editor__paper [property][data-editor-position-level]:before, .editor__paper [data-type][data-editor-position-level]:before, .editor__paper [data-editor-highlight="true"][data-editor-position-level]:before, .editor__paper [typeof]:hover:before, .editor__paper [property]:hover:before, .editor__paper [data-type]:hover:before, .editor__paper [data-editor-highlight="true"]:hover:before {
+	 top: 0;
+	 opacity: 1;
+	 width: 15rem;
+	 height: 2.5rem;
+	 text-align: right;
+	 right: auto;
+	 left: -23.5rem;
+	 display: block;
+	 white-space: pre-wrap;
+}
+ .editor__paper [typeof]:not([data-editor-position-level]):hover:after, .editor__paper [property]:not([data-editor-position-level]):hover:after, .editor__paper [data-type]:not([data-editor-position-level]):hover:after, .editor__paper [data-editor-highlight="true"]:not([data-editor-position-level]):hover:after {
+	 left: -8.5rem;
+}
+ .editor__paper [typeof][data-editor-position-level]:after, .editor__paper [property][data-editor-position-level]:after, .editor__paper [data-type][data-editor-position-level]:after, .editor__paper [data-editor-highlight="true"][data-editor-position-level]:after, .editor__paper [typeof]:hover:after, .editor__paper [property]:hover:after, .editor__paper [data-type]:hover:after, .editor__paper [data-editor-highlight="true"]:hover:after {
+	 position: absolute;
+	 content: "";
+	 display: block;
+	 height: 100%;
+	 left: -7.5rem;
+	 right: auto;
+	 width: 5rem;
+	 border-right: 1px solid #a5b3c2;
+	 border-top: 1px solid #a5b3c2;
+}
+ .editor__paper [typeof]:not([data-editor-position-level]):hover:after, .editor__paper [property]:not([data-editor-position-level]):hover:after, .editor__paper [data-type]:not([data-editor-position-level]):hover:after, .editor__paper [data-editor-highlight="true"]:not([data-editor-position-level]):hover:after {
+	 border-right: 0;
+}
+ .editor__paper [typeof][data-editor-position-level="0"]:after, .editor__paper [property][data-editor-position-level="0"]:after, .editor__paper [data-type][data-editor-position-level="0"]:after, .editor__paper [data-editor-highlight="true"][data-editor-position-level="0"]:after {
+	 border-right: 0;
+}
+ .editor__paper [typeof] [typeof][data-editor-position-level]:before, .editor__paper [property] [typeof][data-editor-position-level]:before, .editor__paper [data-type] [typeof][data-editor-position-level]:before, .editor__paper [data-editor-highlight="true"] [typeof][data-editor-position-level]:before, .editor__paper [typeof] [property][data-editor-position-level]:before, .editor__paper [property] [property][data-editor-position-level]:before, .editor__paper [data-type] [property][data-editor-position-level]:before, .editor__paper [data-editor-highlight="true"] [property][data-editor-position-level]:before, .editor__paper [typeof] [data-type][data-editor-position-level]:before, .editor__paper [property] [data-type][data-editor-position-level]:before, .editor__paper [data-type] [data-type][data-editor-position-level]:before, .editor__paper [data-editor-highlight="true"] [data-type][data-editor-position-level]:before, .editor__paper [typeof] [data-editor-highlight="true"][data-editor-position-level]:before, .editor__paper [property] [data-editor-highlight="true"][data-editor-position-level]:before, .editor__paper [data-type] [data-editor-highlight="true"][data-editor-position-level]:before, .editor__paper [data-editor-highlight="true"] [data-editor-highlight="true"][data-editor-position-level]:before, .editor__paper [typeof] [typeof]:hover:before, .editor__paper [property] [typeof]:hover:before, .editor__paper [data-type] [typeof]:hover:before, .editor__paper [data-editor-highlight="true"] [typeof]:hover:before, .editor__paper [typeof] [property]:hover:before, .editor__paper [property] [property]:hover:before, .editor__paper [data-type] [property]:hover:before, .editor__paper [data-editor-highlight="true"] [property]:hover:before, .editor__paper [typeof] [data-type]:hover:before, .editor__paper [property] [data-type]:hover:before, .editor__paper [data-type] [data-type]:hover:before, .editor__paper [data-editor-highlight="true"] [data-type]:hover:before, .editor__paper [typeof] [data-editor-highlight="true"]:hover:before, .editor__paper [property] [data-editor-highlight="true"]:hover:before, .editor__paper [data-type] [data-editor-highlight="true"]:hover:before, .editor__paper [data-editor-highlight="true"] [data-editor-highlight="true"]:hover:before {
+	 top: 12rem;
+}
+ .editor__paper [typeof] [typeof][data-editor-position-level]:after, .editor__paper [property] [typeof][data-editor-position-level]:after, .editor__paper [data-type] [typeof][data-editor-position-level]:after, .editor__paper [data-editor-highlight="true"] [typeof][data-editor-position-level]:after, .editor__paper [typeof] [property][data-editor-position-level]:after, .editor__paper [property] [property][data-editor-position-level]:after, .editor__paper [data-type] [property][data-editor-position-level]:after, .editor__paper [data-editor-highlight="true"] [property][data-editor-position-level]:after, .editor__paper [typeof] [data-type][data-editor-position-level]:after, .editor__paper [property] [data-type][data-editor-position-level]:after, .editor__paper [data-type] [data-type][data-editor-position-level]:after, .editor__paper [data-editor-highlight="true"] [data-type][data-editor-position-level]:after, .editor__paper [typeof] [data-editor-highlight="true"][data-editor-position-level]:after, .editor__paper [property] [data-editor-highlight="true"][data-editor-position-level]:after, .editor__paper [data-type] [data-editor-highlight="true"][data-editor-position-level]:after, .editor__paper [data-editor-highlight="true"] [data-editor-highlight="true"][data-editor-position-level]:after {
+	 top: 12.5rem;
+	 height: calc(100% - 12rem);
+}
+ .editor__paper [typeof] [data-editor-highlight="true"] [data-editor-highlight="true"]:before, .editor__paper [property] [data-editor-highlight="true"] [data-editor-highlight="true"]:before, .editor__paper [data-type] [data-editor-highlight="true"] [data-editor-highlight="true"]:before, .editor__paper [data-editor-highlight="true"] [data-editor-highlight="true"] [data-editor-highlight="true"]:before, .editor__paper [typeof] [property] [data-editor-highlight="true"]:before, .editor__paper [property] [property] [data-editor-highlight="true"]:before, .editor__paper [data-type] [property] [data-editor-highlight="true"]:before, .editor__paper [data-editor-highlight="true"] [property] [data-editor-highlight="true"]:before, .editor__paper [typeof] [typeof] [data-editor-highlight="true"]:before, .editor__paper [property] [typeof] [data-editor-highlight="true"]:before, .editor__paper [data-type] [typeof] [data-editor-highlight="true"]:before, .editor__paper [data-editor-highlight="true"] [typeof] [data-editor-highlight="true"]:before, .editor__paper [typeof] [data-editor-highlight="true"] [data-type]:before, .editor__paper [property] [data-editor-highlight="true"] [data-type]:before, .editor__paper [data-type] [data-editor-highlight="true"] [data-type]:before, .editor__paper [data-editor-highlight="true"] [data-editor-highlight="true"] [data-type]:before, .editor__paper [typeof] [property] [data-type]:before, .editor__paper [property] [property] [data-type]:before, .editor__paper [data-type] [property] [data-type]:before, .editor__paper [data-editor-highlight="true"] [property] [data-type]:before, .editor__paper [typeof] [typeof] [data-type]:before, .editor__paper [property] [typeof] [data-type]:before, .editor__paper [data-type] [typeof] [data-type]:before, .editor__paper [data-editor-highlight="true"] [typeof] [data-type]:before, .editor__paper [typeof] [data-editor-highlight="true"] [typeof]:before, .editor__paper [property] [data-editor-highlight="true"] [typeof]:before, .editor__paper [data-type] [data-editor-highlight="true"] [typeof]:before, .editor__paper [data-editor-highlight="true"] [data-editor-highlight="true"] [typeof]:before, .editor__paper [typeof] [property] [typeof]:before, .editor__paper [property] [property] [typeof]:before, .editor__paper [data-type] [property] [typeof]:before, .editor__paper [data-editor-highlight="true"] [property] [typeof]:before, .editor__paper [typeof] [typeof] [typeof]:before, .editor__paper [property] [typeof] [typeof]:before, .editor__paper [data-type] [typeof] [typeof]:before, .editor__paper [data-editor-highlight="true"] [typeof] [typeof]:before, .editor__paper [typeof] [data-editor-highlight="true"] [property]:before, .editor__paper [property] [data-editor-highlight="true"] [property]:before, .editor__paper [data-type] [data-editor-highlight="true"] [property]:before, .editor__paper [data-editor-highlight="true"] [data-editor-highlight="true"] [property]:before, .editor__paper [typeof] [property] [property]:before, .editor__paper [property] [property] [property]:before, .editor__paper [data-type] [property] [property]:before, .editor__paper [data-editor-highlight="true"] [property] [property]:before, .editor__paper [typeof] [typeof] [property]:before, .editor__paper [property] [typeof] [property]:before, .editor__paper [data-type] [typeof] [property]:before, .editor__paper [data-editor-highlight="true"] [typeof] [property]:before, .editor__paper [typeof] [data-editor-highlight="true"] [data-editor-highlight="true"]:after, .editor__paper [property] [data-editor-highlight="true"] [data-editor-highlight="true"]:after, .editor__paper [data-type] [data-editor-highlight="true"] [data-editor-highlight="true"]:after, .editor__paper [data-editor-highlight="true"] [data-editor-highlight="true"] [data-editor-highlight="true"]:after, .editor__paper [typeof] [property] [data-editor-highlight="true"]:after, .editor__paper [property] [property] [data-editor-highlight="true"]:after, .editor__paper [data-type] [property] [data-editor-highlight="true"]:after, .editor__paper [data-editor-highlight="true"] [property] [data-editor-highlight="true"]:after, .editor__paper [typeof] [typeof] [data-editor-highlight="true"]:after, .editor__paper [property] [typeof] [data-editor-highlight="true"]:after, .editor__paper [data-type] [typeof] [data-editor-highlight="true"]:after, .editor__paper [data-editor-highlight="true"] [typeof] [data-editor-highlight="true"]:after, .editor__paper [typeof] [data-editor-highlight="true"] [data-type]:after, .editor__paper [property] [data-editor-highlight="true"] [data-type]:after, .editor__paper [data-type] [data-editor-highlight="true"] [data-type]:after, .editor__paper [data-editor-highlight="true"] [data-editor-highlight="true"] [data-type]:after, .editor__paper [typeof] [property] [data-type]:after, .editor__paper [property] [property] [data-type]:after, .editor__paper [data-type] [property] [data-type]:after, .editor__paper [data-editor-highlight="true"] [property] [data-type]:after, .editor__paper [typeof] [typeof] [data-type]:after, .editor__paper [property] [typeof] [data-type]:after, .editor__paper [data-type] [typeof] [data-type]:after, .editor__paper [data-editor-highlight="true"] [typeof] [data-type]:after, .editor__paper [typeof] [data-editor-highlight="true"] [typeof]:after, .editor__paper [property] [data-editor-highlight="true"] [typeof]:after, .editor__paper [data-type] [data-editor-highlight="true"] [typeof]:after, .editor__paper [data-editor-highlight="true"] [data-editor-highlight="true"] [typeof]:after, .editor__paper [typeof] [property] [typeof]:after, .editor__paper [property] [property] [typeof]:after, .editor__paper [data-type] [property] [typeof]:after, .editor__paper [data-editor-highlight="true"] [property] [typeof]:after, .editor__paper [typeof] [typeof] [typeof]:after, .editor__paper [property] [typeof] [typeof]:after, .editor__paper [data-type] [typeof] [typeof]:after, .editor__paper [data-editor-highlight="true"] [typeof] [typeof]:after, .editor__paper [typeof] [data-editor-highlight="true"] [property]:after, .editor__paper [property] [data-editor-highlight="true"] [property]:after, .editor__paper [data-type] [data-editor-highlight="true"] [property]:after, .editor__paper [data-editor-highlight="true"] [data-editor-highlight="true"] [property]:after, .editor__paper [typeof] [property] [property]:after, .editor__paper [property] [property] [property]:after, .editor__paper [data-type] [property] [property]:after, .editor__paper [data-editor-highlight="true"] [property] [property]:after, .editor__paper [typeof] [typeof] [property]:after, .editor__paper [property] [typeof] [property]:after, .editor__paper [data-type] [typeof] [property]:after, .editor__paper [data-editor-highlight="true"] [typeof] [property]:after {
+	 top: 4rem;
+}
+ .editor__paper [typeof] [data-editor-highlight="true"] [data-editor-highlight="true"]:after, .editor__paper [property] [data-editor-highlight="true"] [data-editor-highlight="true"]:after, .editor__paper [data-type] [data-editor-highlight="true"] [data-editor-highlight="true"]:after, .editor__paper [data-editor-highlight="true"] [data-editor-highlight="true"] [data-editor-highlight="true"]:after, .editor__paper [typeof] [property] [data-editor-highlight="true"]:after, .editor__paper [property] [property] [data-editor-highlight="true"]:after, .editor__paper [data-type] [property] [data-editor-highlight="true"]:after, .editor__paper [data-editor-highlight="true"] [property] [data-editor-highlight="true"]:after, .editor__paper [typeof] [typeof] [data-editor-highlight="true"]:after, .editor__paper [property] [typeof] [data-editor-highlight="true"]:after, .editor__paper [data-type] [typeof] [data-editor-highlight="true"]:after, .editor__paper [data-editor-highlight="true"] [typeof] [data-editor-highlight="true"]:after, .editor__paper [typeof] [data-editor-highlight="true"] [data-type]:after, .editor__paper [property] [data-editor-highlight="true"] [data-type]:after, .editor__paper [data-type] [data-editor-highlight="true"] [data-type]:after, .editor__paper [data-editor-highlight="true"] [data-editor-highlight="true"] [data-type]:after, .editor__paper [typeof] [property] [data-type]:after, .editor__paper [property] [property] [data-type]:after, .editor__paper [data-type] [property] [data-type]:after, .editor__paper [data-editor-highlight="true"] [property] [data-type]:after, .editor__paper [typeof] [typeof] [data-type]:after, .editor__paper [property] [typeof] [data-type]:after, .editor__paper [data-type] [typeof] [data-type]:after, .editor__paper [data-editor-highlight="true"] [typeof] [data-type]:after, .editor__paper [typeof] [data-editor-highlight="true"] [typeof]:after, .editor__paper [property] [data-editor-highlight="true"] [typeof]:after, .editor__paper [data-type] [data-editor-highlight="true"] [typeof]:after, .editor__paper [data-editor-highlight="true"] [data-editor-highlight="true"] [typeof]:after, .editor__paper [typeof] [property] [typeof]:after, .editor__paper [property] [property] [typeof]:after, .editor__paper [data-type] [property] [typeof]:after, .editor__paper [data-editor-highlight="true"] [property] [typeof]:after, .editor__paper [typeof] [typeof] [typeof]:after, .editor__paper [property] [typeof] [typeof]:after, .editor__paper [data-type] [typeof] [typeof]:after, .editor__paper [data-editor-highlight="true"] [typeof] [typeof]:after, .editor__paper [typeof] [data-editor-highlight="true"] [property]:after, .editor__paper [property] [data-editor-highlight="true"] [property]:after, .editor__paper [data-type] [data-editor-highlight="true"] [property]:after, .editor__paper [data-editor-highlight="true"] [data-editor-highlight="true"] [property]:after, .editor__paper [typeof] [property] [property]:after, .editor__paper [property] [property] [property]:after, .editor__paper [data-type] [property] [property]:after, .editor__paper [data-editor-highlight="true"] [property] [property]:after, .editor__paper [typeof] [typeof] [property]:after, .editor__paper [property] [typeof] [property]:after, .editor__paper [data-type] [typeof] [property]:after, .editor__paper [data-editor-highlight="true"] [typeof] [property]:after {
+	 min-height: 5rem;
+	 height: calc(100% - 4rem);
+}
+ .editor__paper [typeof] [property] [data-editor-highlight="true"] [data-editor-highlight="true"]:before, .editor__paper [property] [property] [data-editor-highlight="true"] [data-editor-highlight="true"]:before, .editor__paper [data-type] [property] [data-editor-highlight="true"] [data-editor-highlight="true"]:before, .editor__paper [data-editor-highlight="true"] [property] [data-editor-highlight="true"] [data-editor-highlight="true"]:before, .editor__paper [typeof] [typeof] [data-editor-highlight="true"] [data-editor-highlight="true"]:before, .editor__paper [property] [typeof] [data-editor-highlight="true"] [data-editor-highlight="true"]:before, .editor__paper [data-type] [typeof] [data-editor-highlight="true"] [data-editor-highlight="true"]:before, .editor__paper [data-editor-highlight="true"] [typeof] [data-editor-highlight="true"] [data-editor-highlight="true"]:before, .editor__paper [typeof] [property] [property] [data-editor-highlight="true"]:before, .editor__paper [property] [property] [property] [data-editor-highlight="true"]:before, .editor__paper [data-type] [property] [property] [data-editor-highlight="true"]:before, .editor__paper [data-editor-highlight="true"] [property] [property] [data-editor-highlight="true"]:before, .editor__paper [typeof] [typeof] [typeof] [data-editor-highlight="true"]:before, .editor__paper [property] [typeof] [typeof] [data-editor-highlight="true"]:before, .editor__paper [data-type] [typeof] [typeof] [data-editor-highlight="true"]:before, .editor__paper [data-editor-highlight="true"] [typeof] [typeof] [data-editor-highlight="true"]:before, .editor__paper [typeof] [property] [data-editor-highlight="true"] [data-type]:before, .editor__paper [property] [property] [data-editor-highlight="true"] [data-type]:before, .editor__paper [data-type] [property] [data-editor-highlight="true"] [data-type]:before, .editor__paper [data-editor-highlight="true"] [property] [data-editor-highlight="true"] [data-type]:before, .editor__paper [typeof] [typeof] [data-editor-highlight="true"] [data-type]:before, .editor__paper [property] [typeof] [data-editor-highlight="true"] [data-type]:before, .editor__paper [data-type] [typeof] [data-editor-highlight="true"] [data-type]:before, .editor__paper [data-editor-highlight="true"] [typeof] [data-editor-highlight="true"] [data-type]:before, .editor__paper [typeof] [property] [property] [data-type]:before, .editor__paper [property] [property] [property] [data-type]:before, .editor__paper [data-type] [property] [property] [data-type]:before, .editor__paper [data-editor-highlight="true"] [property] [property] [data-type]:before, .editor__paper [typeof] [typeof] [typeof] [data-type]:before, .editor__paper [property] [typeof] [typeof] [data-type]:before, .editor__paper [data-type] [typeof] [typeof] [data-type]:before, .editor__paper [data-editor-highlight="true"] [typeof] [typeof] [data-type]:before, .editor__paper [typeof] [property] [data-editor-highlight="true"] [typeof]:before, .editor__paper [property] [property] [data-editor-highlight="true"] [typeof]:before, .editor__paper [data-type] [property] [data-editor-highlight="true"] [typeof]:before, .editor__paper [data-editor-highlight="true"] [property] [data-editor-highlight="true"] [typeof]:before, .editor__paper [typeof] [typeof] [data-editor-highlight="true"] [typeof]:before, .editor__paper [property] [typeof] [data-editor-highlight="true"] [typeof]:before, .editor__paper [data-type] [typeof] [data-editor-highlight="true"] [typeof]:before, .editor__paper [data-editor-highlight="true"] [typeof] [data-editor-highlight="true"] [typeof]:before, .editor__paper [typeof] [property] [property] [typeof]:before, .editor__paper [property] [property] [property] [typeof]:before, .editor__paper [data-type] [property] [property] [typeof]:before, .editor__paper [data-editor-highlight="true"] [property] [property] [typeof]:before, .editor__paper [typeof] [typeof] [typeof] [typeof]:before, .editor__paper [property] [typeof] [typeof] [typeof]:before, .editor__paper [data-type] [typeof] [typeof] [typeof]:before, .editor__paper [data-editor-highlight="true"] [typeof] [typeof] [typeof]:before, .editor__paper [typeof] [property] [data-editor-highlight="true"] [property]:before, .editor__paper [property] [property] [data-editor-highlight="true"] [property]:before, .editor__paper [data-type] [property] [data-editor-highlight="true"] [property]:before, .editor__paper [data-editor-highlight="true"] [property] [data-editor-highlight="true"] [property]:before, .editor__paper [typeof] [typeof] [data-editor-highlight="true"] [property]:before, .editor__paper [property] [typeof] [data-editor-highlight="true"] [property]:before, .editor__paper [data-type] [typeof] [data-editor-highlight="true"] [property]:before, .editor__paper [data-editor-highlight="true"] [typeof] [data-editor-highlight="true"] [property]:before, .editor__paper [typeof] [property] [property] [property]:before, .editor__paper [property] [property] [property] [property]:before, .editor__paper [data-type] [property] [property] [property]:before, .editor__paper [data-editor-highlight="true"] [property] [property] [property]:before, .editor__paper [typeof] [typeof] [typeof] [property]:before, .editor__paper [property] [typeof] [typeof] [property]:before, .editor__paper [data-type] [typeof] [typeof] [property]:before, .editor__paper [data-editor-highlight="true"] [typeof] [typeof] [property]:before, .editor__paper [typeof] [property] [data-editor-highlight="true"] [data-editor-highlight="true"]:after, .editor__paper [property] [property] [data-editor-highlight="true"] [data-editor-highlight="true"]:after, .editor__paper [data-type] [property] [data-editor-highlight="true"] [data-editor-highlight="true"]:after, .editor__paper [data-editor-highlight="true"] [property] [data-editor-highlight="true"] [data-editor-highlight="true"]:after, .editor__paper [typeof] [typeof] [data-editor-highlight="true"] [data-editor-highlight="true"]:after, .editor__paper [property] [typeof] [data-editor-highlight="true"] [data-editor-highlight="true"]:after, .editor__paper [data-type] [typeof] [data-editor-highlight="true"] [data-editor-highlight="true"]:after, .editor__paper [data-editor-highlight="true"] [typeof] [data-editor-highlight="true"] [data-editor-highlight="true"]:after, .editor__paper [typeof] [property] [property] [data-editor-highlight="true"]:after, .editor__paper [property] [property] [property] [data-editor-highlight="true"]:after, .editor__paper [data-type] [property] [property] [data-editor-highlight="true"]:after, .editor__paper [data-editor-highlight="true"] [property] [property] [data-editor-highlight="true"]:after, .editor__paper [typeof] [typeof] [typeof] [data-editor-highlight="true"]:after, .editor__paper [property] [typeof] [typeof] [data-editor-highlight="true"]:after, .editor__paper [data-type] [typeof] [typeof] [data-editor-highlight="true"]:after, .editor__paper [data-editor-highlight="true"] [typeof] [typeof] [data-editor-highlight="true"]:after, .editor__paper [typeof] [property] [data-editor-highlight="true"] [data-type]:after, .editor__paper [property] [property] [data-editor-highlight="true"] [data-type]:after, .editor__paper [data-type] [property] [data-editor-highlight="true"] [data-type]:after, .editor__paper [data-editor-highlight="true"] [property] [data-editor-highlight="true"] [data-type]:after, .editor__paper [typeof] [typeof] [data-editor-highlight="true"] [data-type]:after, .editor__paper [property] [typeof] [data-editor-highlight="true"] [data-type]:after, .editor__paper [data-type] [typeof] [data-editor-highlight="true"] [data-type]:after, .editor__paper [data-editor-highlight="true"] [typeof] [data-editor-highlight="true"] [data-type]:after, .editor__paper [typeof] [property] [property] [data-type]:after, .editor__paper [property] [property] [property] [data-type]:after, .editor__paper [data-type] [property] [property] [data-type]:after, .editor__paper [data-editor-highlight="true"] [property] [property] [data-type]:after, .editor__paper [typeof] [typeof] [typeof] [data-type]:after, .editor__paper [property] [typeof] [typeof] [data-type]:after, .editor__paper [data-type] [typeof] [typeof] [data-type]:after, .editor__paper [data-editor-highlight="true"] [typeof] [typeof] [data-type]:after, .editor__paper [typeof] [property] [data-editor-highlight="true"] [typeof]:after, .editor__paper [property] [property] [data-editor-highlight="true"] [typeof]:after, .editor__paper [data-type] [property] [data-editor-highlight="true"] [typeof]:after, .editor__paper [data-editor-highlight="true"] [property] [data-editor-highlight="true"] [typeof]:after, .editor__paper [typeof] [typeof] [data-editor-highlight="true"] [typeof]:after, .editor__paper [property] [typeof] [data-editor-highlight="true"] [typeof]:after, .editor__paper [data-type] [typeof] [data-editor-highlight="true"] [typeof]:after, .editor__paper [data-editor-highlight="true"] [typeof] [data-editor-highlight="true"] [typeof]:after, .editor__paper [typeof] [property] [property] [typeof]:after, .editor__paper [property] [property] [property] [typeof]:after, .editor__paper [data-type] [property] [property] [typeof]:after, .editor__paper [data-editor-highlight="true"] [property] [property] [typeof]:after, .editor__paper [typeof] [typeof] [typeof] [typeof]:after, .editor__paper [property] [typeof] [typeof] [typeof]:after, .editor__paper [data-type] [typeof] [typeof] [typeof]:after, .editor__paper [data-editor-highlight="true"] [typeof] [typeof] [typeof]:after, .editor__paper [typeof] [property] [data-editor-highlight="true"] [property]:after, .editor__paper [property] [property] [data-editor-highlight="true"] [property]:after, .editor__paper [data-type] [property] [data-editor-highlight="true"] [property]:after, .editor__paper [data-editor-highlight="true"] [property] [data-editor-highlight="true"] [property]:after, .editor__paper [typeof] [typeof] [data-editor-highlight="true"] [property]:after, .editor__paper [property] [typeof] [data-editor-highlight="true"] [property]:after, .editor__paper [data-type] [typeof] [data-editor-highlight="true"] [property]:after, .editor__paper [data-editor-highlight="true"] [typeof] [data-editor-highlight="true"] [property]:after, .editor__paper [typeof] [property] [property] [property]:after, .editor__paper [property] [property] [property] [property]:after, .editor__paper [data-type] [property] [property] [property]:after, .editor__paper [data-editor-highlight="true"] [property] [property] [property]:after, .editor__paper [typeof] [typeof] [typeof] [property]:after, .editor__paper [property] [typeof] [typeof] [property]:after, .editor__paper [data-type] [typeof] [typeof] [property]:after, .editor__paper [data-editor-highlight="true"] [typeof] [typeof] [property]:after {
+	 top: 12rem;
+}
+ .editor__paper [typeof] [property] [data-editor-highlight="true"] [data-editor-highlight="true"]:after, .editor__paper [property] [property] [data-editor-highlight="true"] [data-editor-highlight="true"]:after, .editor__paper [data-type] [property] [data-editor-highlight="true"] [data-editor-highlight="true"]:after, .editor__paper [data-editor-highlight="true"] [property] [data-editor-highlight="true"] [data-editor-highlight="true"]:after, .editor__paper [typeof] [typeof] [data-editor-highlight="true"] [data-editor-highlight="true"]:after, .editor__paper [property] [typeof] [data-editor-highlight="true"] [data-editor-highlight="true"]:after, .editor__paper [data-type] [typeof] [data-editor-highlight="true"] [data-editor-highlight="true"]:after, .editor__paper [data-editor-highlight="true"] [typeof] [data-editor-highlight="true"] [data-editor-highlight="true"]:after, .editor__paper [typeof] [property] [property] [data-editor-highlight="true"]:after, .editor__paper [property] [property] [property] [data-editor-highlight="true"]:after, .editor__paper [data-type] [property] [property] [data-editor-highlight="true"]:after, .editor__paper [data-editor-highlight="true"] [property] [property] [data-editor-highlight="true"]:after, .editor__paper [typeof] [typeof] [typeof] [data-editor-highlight="true"]:after, .editor__paper [property] [typeof] [typeof] [data-editor-highlight="true"]:after, .editor__paper [data-type] [typeof] [typeof] [data-editor-highlight="true"]:after, .editor__paper [data-editor-highlight="true"] [typeof] [typeof] [data-editor-highlight="true"]:after, .editor__paper [typeof] [property] [data-editor-highlight="true"] [data-type]:after, .editor__paper [property] [property] [data-editor-highlight="true"] [data-type]:after, .editor__paper [data-type] [property] [data-editor-highlight="true"] [data-type]:after, .editor__paper [data-editor-highlight="true"] [property] [data-editor-highlight="true"] [data-type]:after, .editor__paper [typeof] [typeof] [data-editor-highlight="true"] [data-type]:after, .editor__paper [property] [typeof] [data-editor-highlight="true"] [data-type]:after, .editor__paper [data-type] [typeof] [data-editor-highlight="true"] [data-type]:after, .editor__paper [data-editor-highlight="true"] [typeof] [data-editor-highlight="true"] [data-type]:after, .editor__paper [typeof] [property] [property] [data-type]:after, .editor__paper [property] [property] [property] [data-type]:after, .editor__paper [data-type] [property] [property] [data-type]:after, .editor__paper [data-editor-highlight="true"] [property] [property] [data-type]:after, .editor__paper [typeof] [typeof] [typeof] [data-type]:after, .editor__paper [property] [typeof] [typeof] [data-type]:after, .editor__paper [data-type] [typeof] [typeof] [data-type]:after, .editor__paper [data-editor-highlight="true"] [typeof] [typeof] [data-type]:after, .editor__paper [typeof] [property] [data-editor-highlight="true"] [typeof]:after, .editor__paper [property] [property] [data-editor-highlight="true"] [typeof]:after, .editor__paper [data-type] [property] [data-editor-highlight="true"] [typeof]:after, .editor__paper [data-editor-highlight="true"] [property] [data-editor-highlight="true"] [typeof]:after, .editor__paper [typeof] [typeof] [data-editor-highlight="true"] [typeof]:after, .editor__paper [property] [typeof] [data-editor-highlight="true"] [typeof]:after, .editor__paper [data-type] [typeof] [data-editor-highlight="true"] [typeof]:after, .editor__paper [data-editor-highlight="true"] [typeof] [data-editor-highlight="true"] [typeof]:after, .editor__paper [typeof] [property] [property] [typeof]:after, .editor__paper [property] [property] [property] [typeof]:after, .editor__paper [data-type] [property] [property] [typeof]:after, .editor__paper [data-editor-highlight="true"] [property] [property] [typeof]:after, .editor__paper [typeof] [typeof] [typeof] [typeof]:after, .editor__paper [property] [typeof] [typeof] [typeof]:after, .editor__paper [data-type] [typeof] [typeof] [typeof]:after, .editor__paper [data-editor-highlight="true"] [typeof] [typeof] [typeof]:after, .editor__paper [typeof] [property] [data-editor-highlight="true"] [property]:after, .editor__paper [property] [property] [data-editor-highlight="true"] [property]:after, .editor__paper [data-type] [property] [data-editor-highlight="true"] [property]:after, .editor__paper [data-editor-highlight="true"] [property] [data-editor-highlight="true"] [property]:after, .editor__paper [typeof] [typeof] [data-editor-highlight="true"] [property]:after, .editor__paper [property] [typeof] [data-editor-highlight="true"] [property]:after, .editor__paper [data-type] [typeof] [data-editor-highlight="true"] [property]:after, .editor__paper [data-editor-highlight="true"] [typeof] [data-editor-highlight="true"] [property]:after, .editor__paper [typeof] [property] [property] [property]:after, .editor__paper [property] [property] [property] [property]:after, .editor__paper [data-type] [property] [property] [property]:after, .editor__paper [data-editor-highlight="true"] [property] [property] [property]:after, .editor__paper [typeof] [typeof] [typeof] [property]:after, .editor__paper [property] [typeof] [typeof] [property]:after, .editor__paper [data-type] [typeof] [typeof] [property]:after, .editor__paper [data-editor-highlight="true"] [typeof] [typeof] [property]:after {
+	 min-height: 5rem;
+	 height: calc(100% - 8rem);
+}
+/* making sure list items annotations look good too */
+ .rdfa-annotations:not(.show-rdfa-blocks) ul:not(.article-list) [typeof]:not([data-editor-position-level]):hover:before, .rdfa-annotations:not(.show-rdfa-blocks) ul:not(.article-list) [property]:not([data-editor-position-level]):hover:before, .rdfa-annotations:not(.show-rdfa-blocks) ul:not(.article-list) [data-type]:not([data-editor-position-level]):hover:before, .rdfa-annotations:not(.show-rdfa-blocks) ul:not(.article-list) [data-editor-highlight="true"]:not([data-editor-position-level]):hover:before {
+	 left: -26.5rem;
+}
+ .rdfa-annotations:not(.show-rdfa-blocks) ul:not(.article-list) [typeof]:not([data-editor-position-level]):hover:after, .rdfa-annotations:not(.show-rdfa-blocks) ul:not(.article-list) [property]:not([data-editor-position-level]):hover:after, .rdfa-annotations:not(.show-rdfa-blocks) ul:not(.article-list) [data-type]:not([data-editor-position-level]):hover:after, .rdfa-annotations:not(.show-rdfa-blocks) ul:not(.article-list) [data-editor-highlight="true"]:not([data-editor-position-level]):hover:after {
+	 left: -10.5rem;
+}
+ .rdfa-annotations:not(.show-rdfa-blocks) ul:not(.article-list) [typeof][data-editor-position-level]:before, .rdfa-annotations:not(.show-rdfa-blocks) ul:not(.article-list) [property][data-editor-position-level]:before, .rdfa-annotations:not(.show-rdfa-blocks) ul:not(.article-list) [data-type][data-editor-position-level]:before, .rdfa-annotations:not(.show-rdfa-blocks) ul:not(.article-list) [data-editor-highlight="true"][data-editor-position-level]:before {
+	 left: -25.5rem;
+}
+ .rdfa-annotations:not(.show-rdfa-blocks) ul:not(.article-list) [typeof][data-editor-position-level]:after, .rdfa-annotations:not(.show-rdfa-blocks) ul:not(.article-list) [property][data-editor-position-level]:after, .rdfa-annotations:not(.show-rdfa-blocks) ul:not(.article-list) [data-type][data-editor-position-level]:after, .rdfa-annotations:not(.show-rdfa-blocks) ul:not(.article-list) [data-editor-highlight="true"][data-editor-position-level]:after {
+	 left: -9.5rem;
+}

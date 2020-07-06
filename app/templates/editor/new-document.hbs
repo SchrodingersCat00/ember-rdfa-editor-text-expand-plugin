@@ -1,6 +1,5 @@
-{{#editor-container}}
-  {{rdfa/rdfa-editor class="rdfa-editor"
-    profile="all"
-    value=model
-    rdfaEditorInit=(action "handleRdfaEditorInit")}}
-{{/editor-container}}
+<div prefix="foaf: http://xmlns.com/foaf/0.1/" typeof="foaf:Document" resource="#">
+  {{rdfa/rdfa-editor class="rdfa-editor" profile=profile value=editorDocument.content rdfaEditorInit=(action "handleRdfaEditorInit")}}
+</div>
+
+{{outlet}}

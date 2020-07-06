@@ -1,0 +1,57 @@
+<! -- OVERRIDING PLUGIN FOR CONFUSING + BUTTON -->
+<div class="app-chrome">
+  <div class="app-chrome--header">
+    <div class="grid">
+      <div class="col--4-12">
+        <img src="https://dev.say-editor.com/assets/images/logos-say/say-logo-long-horizontal-color.svg" alt="Say editor, the text-editor that knows what you're talking about">
+      </div>
+      <div class="col--8-12 u-align-right">
+        <a href="https://say-editor.com/docs" target="_blank" rel="noopener"><i class="fa fa-book"></i> Visit our docs</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="app-chrome--toolbar-container">
+    {{#if this.editor}}
+      <Rdfa::EditorToolbar @contentEditable={{editor}} />
+    {{/if}}
+  </div> 
+</div>
+<div class="container-flex--contain editor-container">
+  <div class="container-flex--scroll">
+    <div class="grid grid--collapse grid--align-right">
+      <div class="col--8-12">
+        <div class="editor">
+          <Ce::ContentEditable @class="editor__paper" @textInsert={{or this.eventProcessor.insertText this.warnNotSetup}} @textRemove={{or this.eventProcessor.removeText this.warnNotSetup}} @handleFullContentUpdate={{or this.eventProcessor.analyseAndDispatch this.warnNotSetup}} @selectionUpdate={{action (or this.eventProcessor.selectionChanged this.warnNotSetup) editor.currentSelection}} @rawEditorInit={{action "handleRawEditorInit"}} @elementUpdate={{action (or this.domUpdate this.noop) editor.rootNode}} @externalHandlers={{this.handlers}} @editable={{true}} @focused={{true}} @yieldHTML={{true}}>
+            {{{this.value}}}
+          </Ce::ContentEditable>
+        </div>
+      </div>
+      <div class="col--4-12">
+ {{!--        <div class="editor-commands">
+          <div class="button-group">
+            <button class="annotation-suggestion--trigger button--alt button" onclick={{action "triggerHints"}}>+</button>
+          </div>
+        </div> --}}
+        <div class="editor-loading-events">
+          <Rdfa::LoadMonitor @editor={{this.eventProcessor.editor}} />
+        </div>
+        <div class="editor-hints">
+          <Rdfa::EditorSuggestedHints @suggestedHints={{this.suggestedHints}} />
+          {{#if this.hasActiveHints}}
+            <div class="annotation-suggestion__suggestion">
+              <div class="modal-dialog modal-dialog--sectioned modal-dialog--small modal-dialog--static modal-dialog--hint">
+                <ul>
+                  {{#each this.hintsRegistry.activeHints as |card|}}
+                    <li>{{component card.card info=card.info}}</li>
+                  {{/each}}
+                </ul>
+              </div>
+            </div>
+          {{/if}}
+          {{yield}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
