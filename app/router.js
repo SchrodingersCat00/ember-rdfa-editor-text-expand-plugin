@@ -10,7 +10,7 @@ Router.map(function() {
   this.route('editor', function(){
     this.route('new-document');
   });
-  
+
   this.route('route-not-found', {
     path: '/*path'
   });
