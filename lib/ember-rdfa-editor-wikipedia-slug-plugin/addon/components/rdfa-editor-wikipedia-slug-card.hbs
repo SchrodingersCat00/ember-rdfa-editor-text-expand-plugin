@@ -1,14 +1,23 @@
 {{!-- addon/components/rdfa-editor-wikipedia-slug-card.js --}}
+<div {{did-insert this.onRender}} {{will-destroy this.onWillDestroy}}>
 
 <div class="modal-dialog__content">
     <p class="u-spacer--tiny">
         Wikipedia link hint
         <br>
-        <strong>Do you want to change the text to "Some Text"?</strong>
+        <strong>Do you want to insert "Some Text"?</strong>
     </p>
 </div>
 <div class="modal-dialog__footer">
     <WuButtonGroup>
-        <WuButton @label="Yes" @size="small" @isNarrow={{true}} @commandLocation="below" @onClick={{this.insert}} />
+        <WuButton
+            @label="Yes"
+            @size="small"
+            @isNarrow={{true}}
+            @commandLocation="below"
+            @onClick={{this.insert}}
+        />
+        <span style="color: grey;">or press Tab key</span>
     </WuButtonGroup>
+</div>
 </div>
